@@ -1,0 +1,130 @@
+// Overriding bootstrap theme colors with CSS variables
+
+@each $color in $my-theme-colors {
+  .bg {
+    &-#{$color} {
+      background-color: var(--#{$color}) !important;
+
+      background: var(--gradient-#{$color});
+    }
+  }
+
+  .text {
+    &-#{$color} {
+      color: var(--#{$color}) !important;
+    }
+  }
+
+  .btn {
+    font-family: var(--font-primary);
+    transition: 0.2s;
+
+    &-#{$color} {
+      background: var(--gradient-#{$color});
+
+      background-color: var(--#{$color});
+      border-color: var(--#{$color});
+
+      &:not(:disabled):not(.disabled) {
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: lightness(var(--#{$color}), 0.9);
+          border-color: lightness(var(--#{$color}), 0.9);
+        }
+      }
+    }
+
+    &-outline-#{$color} {
+      border-color: var(--#{$color});
+      color: var(--#{$color});
+
+      &:not(:disabled):not(.disabled) {
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: var(--#{$color});
+        }
+      }
+    }
+
+    &-link-#{$color} {
+      color: var(--#{$color}) !important;
+    }
+
+    &:hover {
+      filter: brightness(1.1) saturate(1.1);
+    }
+  }
+
+  .badge {
+    &-#{$color} {
+      color: var(--#{$color});
+      background-color: alpha(var(--#{$color}), 0.15);
+    }
+  }
+}
+
+// Modifying all header elements
+@for $index from 1 through 6 {
+  h#{$index} {
+    font-family: var(--font-primary);
+  }
+}
+
+.btn-rounded {
+  border-radius: 24px !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.badge {
+  font-size: 0.625rem;
+  // text-transform: uppercase;
+
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-family: Open Sans, sans-serif;
+
+  padding: 2px 10px;
+  text-align: center;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  color: #444;
+  box-sizing: border-box;
+  background: rgba(68, 68, 68, 0.1);
+
+  &:not(.badge-pill) {
+    border-radius: 2px;
+  }
+}
+
+.text-muted {
+  color: var(--grey);
+}
+
+a {
+  color: var(--primary);
+
+  &:hover {
+    color: lightness(var(--primary), 0.8);
+  }
+}
+
+.user-select-none {
+  user-select: none;
+}
+
+.bg-hover {
+  &-primary {
+    @include overlay-on-hover() {
+      @extend .bg-primary;
+    }
+  }
+
+  &-secondary {
+    @include overlay-on-hover() {
+      @extend .bg-secondary;
+    }
+  }
+}

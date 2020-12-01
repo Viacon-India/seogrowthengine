@@ -1,0 +1,4 @@
+.home .banner h2 {
+  font-size: calc(10px + 3vmin) !important;
+  line-height: 1.5;
+}

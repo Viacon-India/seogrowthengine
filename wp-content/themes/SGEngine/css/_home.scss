@@ -1,0 +1,190 @@
+.home {
+  .iq-solutions .btn.btn-rounded {
+    padding: 0.8rem 1.4rem !important;
+
+    &:first-child {
+      margin-right: 1rem;
+    }
+  }
+
+  header .mega-menu:not(.desktopTopFixed) {
+    color: black !important;
+
+    @media (min-width: 1024px) {
+      .menu-links > li > a {
+        color: white !important;
+      }
+    }
+  }
+
+  .p-card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    position: relative;
+    padding: 15px 16px;
+    z-index: 9;
+    gap: calc(10px + 2vmin);
+
+    @include mq($until: tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .p-card {
+      // width: calc(16.666% - 30px) !important;
+      width: 100% !important;
+      // min-width: 150px;
+      min-height: 120px !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 265px !important;
+      margin: 5px auto;
+      margin-bottom: 0px;
+      background: #fff;
+      border-radius: 6px;
+      // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+      box-shadow: 0px 13px 25px 0px rgba(77, 54, 206, 0.1);
+      overflow: hidden;
+      padding: 10px;
+      box-sizing: border-box;
+      transition: box-shadow 0.9s, transform 0.9s;
+      position: relative;
+      user-select: none;
+    }
+  }
+
+  .media.service-info {
+    flex-direction: row !important;
+    align-items: center;
+
+    @include mq($until: desktop) {
+      flex-direction: column !important;
+      margin-bottom: calc(10px + 2vmin) !important;
+
+      a {
+        display: block;
+        text-align: center;
+      }
+
+      .media-body {
+        margin-left: 0 !important;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .iq-feature-shap {
+        // margin-left: 0 !important;
+        margin: auto;
+      }
+    }
+  }
+
+  .iq-works .iq-workinfo .service-shap img {
+    filter: contrast(0.8);
+    padding: 10px;
+  }
+
+  .banner {
+    overflow: hidden;
+    background-image: none !important;
+    background: $primary-color;
+    background: linear-gradient(
+      145deg,
+      rgba(89, 53, 208, 1) 0%,
+      rgba(127, 100, 213, 1) 100%
+    ) !important;
+    padding: 6vmin 0 !important;
+
+    @include mq($until: tablet) {
+      padding-top: calc(2rem + 5vmin) !important;
+    }
+
+    h2 {
+      font-size: calc(12px + 4vmin) !important;
+      line-height: 1.3;
+    }
+
+    p {
+      line-height: 1.4;
+      font-size: calc(10px + 1vmin);
+    }
+
+    .banner-btn > * {
+      margin-bottom: 5px !important;
+    }
+
+    .banner-blob {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      pointer-events: none;
+      max-height: 96vw;
+      filter: drop-shadow(2px 4px 10vmin darken($primary-color, 5%));
+    }
+
+    .text-container {
+      background: url(https://www.bloggeroutreach.io/wp-content/themes/BO-new-theme/images/home/baner-dots.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .graphic-container {
+      img {
+        padding: 6vmax;
+      }
+    }
+  }
+
+  ul {
+    padding: 0 !important;
+  }
+}
+
+#get-started-form {
+  // max-width: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  & > * {
+    border-radius: 0 !important;
+  }
+
+  button[type="submit"] {
+    min-width: auto !important;
+  }
+}
+
+#main-header nav .menu-mobile-collapse-trigger {
+  background: transparent !important;
+
+  @media (max-width: 1023px) {
+    &:before,
+    &:after,
+    > * {
+      background: black !important;
+      color: white !important;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  header .mega-menu .menu-links > li > a.active {
+    color: black !important;
+    background: white !important;
+  }
+
+  header .mega-menu .menu-links > li > .header-btn.btn-rounded {
+    width: 100% !important;
+    border-radius: 0;
+  }
+}
+
+// .mega-menu .menu-links > li:hover a {
+//   color: black !important;
+//   background: white !important;
+// }

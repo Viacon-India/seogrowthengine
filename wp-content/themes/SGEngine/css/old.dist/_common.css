@@ -1,0 +1,24 @@
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.btn-rounded {
+  background-color: #33e09f !important;
+  width: 169px !important;
+  border-radius: 25px;
+  text-align: center !important;
+  margin: 0px;
+  padding: 0px;
+}

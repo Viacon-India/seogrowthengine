@@ -1,0 +1,165 @@
+08/06/20 8:54:24: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:54:24: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:54:29: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:54:29: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:54:30: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:54:30: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:55:20: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:55:20: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:55:21: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:55:21: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:56:25: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:56:25: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:56:25: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:56:25: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:00: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:00: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:01: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:01: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:16: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:16: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:24: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:57:24: /home/bloggero/public_html/wp-content/plugins/wp-scss/cache/ - File Permission Error, permission denied. Please make the cache directory writable.
+08/06/20 8:58:36: style.scss - parse error: failed at `12.` /home/bloggero/public_html/wp-content/themes/BO-new-theme/css/style.scss on line 17
+08/06/20 8:58:43: style.scss - parse error: failed at `12.` /home/bloggero/public_html/wp-content/themes/BO-new-theme/css/style.scss on line 17
+08/06/20 8:59:08: style.scss - parse error: failed at `12.` /home/bloggero/public_html/wp-content/themes/BO-new-theme/css/style.scss on line 17
+08/06/20 8:59:09: style.scss - parse error: failed at `12.` /home/bloggero/public_html/wp-content/themes/BO-new-theme/css/style.scss on line 17
+08/06/20 8:59:09: style.scss - parse error: failed at `12.` /home/bloggero/public_html/wp-content/themes/BO-new-theme/css/style.scss on line 17
+08/08/20 10:39:22: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:39:23: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:39:40: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:39:53: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:39:58: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:40:00: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:40:01: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:41:22: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:41:24: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:41:40: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:41:48: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:42:01: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:42:03: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:21: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:23: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:36: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:41: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:42: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:45: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:48: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:49: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:49: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:50: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:52: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:55: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:43:59: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:09: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:09: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:10: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:10: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:13: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:19: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:19: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:20: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:20: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:21: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:27: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:34: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:35: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:38: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:47: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:49: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:49: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:51: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:51: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:52: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:44:52: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:07: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:08: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:08: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:10: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:14: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:20: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:20: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:21: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:25: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:33: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:35: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:37: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:41: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:42: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:42: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:44: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:46: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:47: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:45:48: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:46:04: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:46:05: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:46:07: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:46:12: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:46:13: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:46:28: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:46:52: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:47:12: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:47:14: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:47:41: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:47:59: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:48:01: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:48:03: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:48:10: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:48:12: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:48:13: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:49:13: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:49:14: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:49:33: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:49:36: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:49:41: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:07: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:08: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:14: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:15: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:15: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:20: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:21: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:24: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:28: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:30: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:35: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:36: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:38: style.scss - Undefined variable $secondary-color: line: 22
+08/08/20 10:50:43: style.scss - Undefined variable $secondary-color: line: 22
+08/12/20 1:22:16: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:17: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:18: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:25: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:25: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:25: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:42: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:51: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:52: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:55: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:22:59: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:12: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:13: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:13: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:19: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:19: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:20: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:20: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:29: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:29: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:23:30: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:01: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:02: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:28: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:32: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:34: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:39: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:40: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:42: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:45: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:45: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:51: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:51: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:24:55: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:25:01: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:25:04: style.scss - Undefined variable $color-secondary: line: 101
+08/12/20 1:25:05: style.scss - Undefined variable $color-secondary: line: 101

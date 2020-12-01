@@ -1,0 +1,164 @@
+// resets
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.rounded-lg {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid grey;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-rounded {
+  background-color: $secondary-color !important;
+  border-radius: 25px;
+  min-width: 169px !important;
+  text-align: center !important;
+  margin: 0px;
+  padding: 0px;
+  padding: calc(5px + 0.5vmin);
+  color: white !important;
+  transition: 0.3s;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    filter: brightness(0.9);
+    color: white;
+  }
+}
+
+.page-item.active .page-link {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+}
+.page-link {
+  color: $secondary-color;
+}
+
+.bg-secondary {
+  background-color: $secondary-color !important;
+}
+
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.text-primary {
+  color: $primary-color !important;
+}
+
+body {
+  .text-secondary {
+    color: $secondary-color !important;
+  }
+}
+
+.mt-10 {
+  margin-top: 7rem !important;
+}
+
+// counter
+counter {
+  &::before {
+    content: attr(data-before);
+  }
+
+  &::after {
+    content: attr(data-after);
+  }
+}
+
+#back-to-top .top {
+  display: none;
+}
+
+.btn-outline-primary {
+  border: 1px solid $color-primary;
+  width: 180px !important;
+  border-radius: 25px;
+  text-align: center !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: transparent !important;
+
+  &:hover {
+    background-color: $color-primary;
+    color: white;
+  }
+}
+
+.btn-outline-secondary {
+  border: 1px solid $color-secondary !important;
+  min-width: 169px !important;
+  border-radius: 25px;
+  text-align: center !important;
+  color: $color-secondary !important;
+  transition: 0.3s;
+  background-color: transparent !important;
+
+  &:hover {
+    background-color: $color-secondary !important;
+    color: white !important;
+  }
+}
+
+.btn-secondary {
+  border: 1px solid $color-secondary !important;
+  min-width: 169px !important;
+  text-align: center !important;
+  transition: 0.3s;
+  background-color: $color-secondary !important;
+  color: white !important;
+}
+
+.publisher-page {
+  .banner {
+    .curve {
+      position: absolute;
+      bottom: -2px;
+    }
+  }
+
+  .listing-mark {
+    li {
+      color: white !important;
+    }
+  }
+
+  form input[type="submit"] {
+    display: block;
+    margin: auto;
+  }
+}
+
+footer ul li {
+  transition: 0.2s !important;
+  line-height: 1.2;
+  margin-bottom: calc(5px);
+  padding: 5px 0;
+
+  a {
+    display: inline-block;
+  }
+
+  &:hover {
+    border-left: 2px solid rgba(white, 0.5);
+    padding-left: 6px;
+  }
+}

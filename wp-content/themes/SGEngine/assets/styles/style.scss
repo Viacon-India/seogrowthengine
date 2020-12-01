@@ -1,0 +1,28 @@
+// SCSS imports
+@import "./mixins";
+@import "./variables";
+@import "./mq";
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./bootstrap-overrides";
+
+@import "../../node_modules/sass-mq/mq";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import "./common";
+
+// Page specific SCSS
+@import "./home";
+@import "./service";
+@import "./case-stady";
+@import "./testimonial";
+@import "./swiper";
+
+// CSS imports
+// Fonts: Poppins, Noto Sans
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");

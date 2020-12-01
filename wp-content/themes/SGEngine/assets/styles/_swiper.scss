@@ -1,0 +1,24 @@
+// .swiper-container {
+//   width: 100%;
+//   .swiper-slide {
+//     background: #fff;
+//     display: flex;
+//     flex-direction: row;
+//     flex: 0 0 100%;
+//     max-width: 100%;
+//         .ifrem-warapper {
+//         @include grid-columns(calc(300px + 5vmax), 2rem);
+//             .ifrem-card {
+//                 background: Var(--secondary);
+//                 height: 25vmax;
+//                 box-sizing: border-box;
+//                 border-radius: calc(12px + 2vmin);
+//                 border: 1vmin solid var(--primary);
+//                 overflow: hidden;
+//                 iframe {
+//                     @include full-fit;
+//                 }
+//             }
+//         }
+//     }
+// }

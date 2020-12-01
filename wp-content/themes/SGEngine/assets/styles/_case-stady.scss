@@ -1,0 +1,155 @@
+.case-banner {
+  background: var(--gradient-primary);
+  height: auto;
+  padding: 5vmax;
+  @include mq($until: tablet) {
+    height: auto !important;
+  }
+  .title {
+    text-align: center;
+    color: var(--light);
+    line-height: 1.5;
+    .text-bold {
+      font-weight: 700;
+      .text-highlight {
+        color: var(--secondary);
+      }
+    }
+  }
+  form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    .form-row {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -5px;
+      margin-left: -5px;
+      input[type=submit]{
+        @include mq($until: tablet) {
+           margin: 3vmax 0 0 0 !important;
+          }
+      }
+    }
+  }
+}
+
+// start main section
+
+.zik-zak-card {
+  padding: 3vmax 0 4vmax 0;
+  .row {
+    margin: 0 0 4vmax 0;
+  }
+  .row:nth-child(4) {
+    margin: 0 0 0 0;
+  }
+
+  .img-card {
+    border-radius: calc(15px + 1vmin);
+
+    .c-image {
+      @include full-fit;
+    }
+  }
+
+  .content-wrapper {
+    .fit-back-title-sec {
+      .title {
+        color: var(--secondary);
+      }
+    }
+    .content-sec {
+      .icon-taitle {
+        color: var(--primary);
+        font-size: calc(15px + 1vmin);
+
+        .icon-warpper {
+          width: 1.5vmax !important;
+          display: inline-block;
+          margin-right: 2vmin;
+          @include mq($until: tablet) {
+            width: 3.5vmax !important;
+          }
+          .icon-img {
+            @include full-fit;
+          }
+        }
+      }
+
+      .content {
+        font-size: calc(8px + 1vmin);
+        color: gray;
+      }
+      .bulate-title {
+        font-size: calc(12px + 1vmin);
+        span {
+          font-size: calc(20px + 2vmin);
+          margin: 0px auto;
+          padding: 0;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .mq-spaching {
+    @include mq($until: tablet) {
+      margin-top: 3vmax !important;
+    }
+  }
+  .card-wrapper {
+    @include grid-columns(calc(180px + 5vmax), 2rem);
+    margin: 0 5vmax;
+    .c-card {
+      background-color: var(--secondary);
+      border-radius: calc(10px + 2vmin);
+      padding: 2vmax 1vmax;
+      text-align: center;
+      color: var(--light);
+      .c-hader {
+        font-size: calc(40px + 6vmin);
+        font-weight: 700;
+        margin-bottom: 1.5vmax;
+        .sub {
+          font-size: calc(25px + 3vmin);
+          bottom: 0;
+        }
+      }
+    }
+    .c-card:nth-child(2) {
+      background: var(--primary);
+    }
+  }
+}
+
+.page-caption {
+  padding: 2vmax 0;
+  background: var(--gradient-primary);
+  .title {
+    color: var(--light);
+    font-size: calc(12px + 1vmin);
+    margin: 0px;
+    font-style: normal;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-weight: 300;
+    padding-left: 10vmax;
+    @include mq($until: tablet) {
+      padding-left:0;
+    }
+  }
+  .btn-wrapper {
+    height: auto;
+    margin: auto;
+    vertical-align: middle;
+
+    .btn {
+      @include mq($until: tablet) {
+        margin: 3vmax 0 0 0;
+        width: 100% !important;
+      }
+    }
+  }
+}
+// end main section

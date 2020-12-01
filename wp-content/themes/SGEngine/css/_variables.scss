@@ -1,0 +1,21 @@
+// $secondary-color: #33e09f;
+$secondary-color: #cc597d;
+$color-secondary: #cc597d;
+$primary-color: #4133bc;
+$color-primary: #4133bc;
+$color-primary: #{$primary-color};
+$light-color: #ffffff;
+$dark-color: #000000;
+$bg-blog-banner:#eeeeee;
+
+$color-grey: #868894;
+$color-dark: $dark-color;
+
+$shadow-primary: 0px 1px 18px 3px rgba(0, 0, 0, 0.1);
+$shadow-large: 0px 0px 35px 0px rgba(0, 0, 0, 0.1);
+
+
+:root {
+    --primary: $primary-color !important;
+    --secondary: $secondary-color !important;
+}
