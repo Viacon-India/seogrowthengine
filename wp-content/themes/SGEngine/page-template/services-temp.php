@@ -10,14 +10,15 @@ foreach ($myvals as $key => $val) {
 ?>
 
 
+
     <header class="service-banner">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 order-2 order-md-1">
             <div class="content-part">
               <div class="title-sec">
                 <h1 class="title">
-                  <?php echo $service_banner_title; ?>                  
+                  <?php echo $service_banner_title; ?>
                 </h1>
                 <p class="sub-title text-muted"><?php echo $service_banner_cont; ?></p>
               </div>
@@ -31,9 +32,12 @@ foreach ($myvals as $key => $val) {
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 order-1 order-md-2">
             <div class="banner-image">
-              <img src="<?php echo $service_banner_image; ?>" alt="service-banner-image" />
+              <!-- <img src="./assets/images/services/banner.png" alt="" /> -->
+              <video loop autoplay muted>
+                <source src="<?php echo $service_banner_video_url; ?>" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -63,46 +67,64 @@ foreach ($myvals as $key => $val) {
             </div>
             <div class="col-md-12">
               <div class="trusted-wrapper">
-                <a class="c-card" href="#">
-                  <img
-                    class="c-image"
-                    src="<?php echo SGE_URI; ?>/assets/images/services/jet-pack-logo-icon.png"
-                    alt=""
-                  />
-                  <h6 class="c-title">Jetpack</h6>
-                </a>
-                <a class="c-card" href="#">
-                  <img
-                    class="c-image"
-                    src="<?php echo SGE_URI; ?>/assets/images/services/cloude-flair.png"
-                    alt=""
-                  />
-                  <h6 class="c-title">CLOUD-FALER</h6>
-                </a>
-                <a class="c-card" href="#">
-                  <img
-                    class="c-image"
-                    src="<?php echo SGE_URI; ?>/assets/images/services/goole-cloud.png"
-                    alt=""
-                  />
-                  <h6 class="c-title">Google Cloud</h6>
-                </a>
-                <a class="c-card" href="#">
-                  <img
-                    class="c-image"
-                    src="<?php echo SGE_URI; ?>/assets/images/services/wordprees.png"
-                    alt=""
-                  />
-                  <h6 class="c-title">Worde Prasse</h6>
-                </a>
-                <a class="c-card" href="#">
-                  <img
-                    class="c-image"
-                    src="<?php echo SGE_URI; ?>/assets/images/services/LITESPEED.png"
-                    alt=""
-                  />
-                  <h6 class="c-title">LITESPEED</h6>
-                </a>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <a class="c-card" href="#">
+                      <img
+                        class="c-image"
+                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/jet-pack-logo-icon.png"
+                        alt=""
+                      />
+                      <h6 class="c-title">Jetpack</h6>
+                    </a>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <a class="c-card" href="#">
+                      <img
+                        class="c-image"
+                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/cloude-flair.png"
+                        alt=""
+                      />
+                      <h6 class="c-title">CLOUD-FALER</h6>
+                    </a>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <a class="c-card" href="#">
+                      <img
+                        class="c-image"
+                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/goole-cloud.png"
+                        alt=""
+                      />
+                      <h6 class="c-title">Google Cloud</h6>
+                    </a>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <a class="c-card" href="#">
+                      <img
+                        class="c-image"
+                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/wordprees.png"
+                        alt=""
+                      />
+                      <h6 class="c-title">Worde Prasse</h6>
+                    </a>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <a class="c-card" href="#">
+                      <img
+                        class="c-image"
+                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/LITESPEED.png"
+                        alt=""
+                      />
+                      <h6 class="c-title">LITESPEED</h6>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
               </div>
             </div>
           </div>
@@ -119,137 +141,106 @@ foreach ($myvals as $key => $val) {
                 </h2>
                 <p><?php echo $service_pricing_cont; ?></p>
               </div>
-              <div class="authority-nav">
-                <a class="nav-card" href="#"><span>domain authority</span></a>
-                <a class="nav-card" href="#"><span>traffic da +</span></a>
-                <a class="nav-card" href="#"><span>traffic</span></a>
-                <a class="nav-card" href="#"><span>traffic da +</span></a>
-              </div>
-              <div class="authority-wrapper">
-                <div class="c-card">
-                  <div class="c-title-sec">
-                    <h5 class="title">Bronze Guest Posting</h5>
-                    <p class="sub-title">Ideal solution for beginners</p>
+
+                <div class="authority-nav">
+
+                  <?php //echo get_the_ID(); echo 'dfsdgsfg';
+                  $pricing_data = get_field( "pricing_type", get_the_ID() );
+                  //echo '<pre>';
+                  //print_r($pricing_data);
+                  //echo '</pre>';
+                  
+                  if (!empty($pricing_data) && is_array($pricing_data)) {
+                  $fs = 1;
+                  foreach ((array) $pricing_data as $p_data) : setup_postdata($p_data);
+                  //print_r($p_data);
+                  
+                    $type = $p_data['type']; ?>              
+                  
+                      <a class="nav-card" href="#"><span><?php echo $type; ?></span></a>
+
+                    <?php $fs++;
+                    endforeach;
+                    wp_reset_postdata();
+                    } ?>
+
                   </div>
 
-                  <div class="price">
-                    <span class="left-dolor"> $ 70 </span>
-                    <span class="right-dolor"> $ 35 </span>
-                  </div>
 
-                  <div class="card-list">
-                    <h6 class="list-title">Domain Authority- 20+</h6>
-                    <ul class="list-ul">
-                      <li class="list-li">Website Traffic- 100+</li>
-                      <li class="list-li">Content Length- 600+ Words</li>
-                      <li class="list-li">100% Manual Outreach</li>
-                      <li class="list-li">Niche-Specific Sites Only</li>
-                      <li class="list-li">100% Do-Follow Links</li>
-                      <li class="list-li">1 Anchor Text/Target URL</li>
-                      <li class="list-li">48-Hour Delivery Promise</li>
-                      <li class="list-li">SEO Optimised Content</li>
-                    </ul>
-                  </div>
+                <?php
+                
+                $pricing_offer_arr = [ 'Website Traffic- 100+',
+                        'Content Length- 600+ Words',
+                        '100% Manual Outreach',
+                        'Niche-Specific Sites Only',
+                        '100% Do-Follow Links',
+                        '1 Anchor Text/Target URL', 
+                        '48-Hour Delivery Promise', 
+                        'SEO Optimised Content'
+                ];
+                
+                //print_r($pricing_offer_arr);
+                    
+                if (!empty($pricing_data) && is_array($pricing_data)) {
+                  $cs = 1;
+                  foreach ((array) $pricing_data as $p_data) : setup_postdata($p_data);
+                  //print_r($p_data); ?>
+                  
+                  <div class="authority-wrapper">
+                      
+                      
+                    <?php foreach ((array) $p_data['data'] as $new_data) : setup_postdata($new_data); ?>
 
-                  <div class="actions">
-                    <a href="#" class="add-to-cart">Add to Cart</a>
-                    <a href="#" class="see-all">(Unlock Coupon Code)</a>
-                  </div>
-                </div>
+                    <div class="c-card">
+                      <div class="c-title-sec">
+                        <h5 class="title"><?php echo $new_data['title']; ?></h5>
+                        <p class="sub-title"><?php echo $new_data['sub_title']; ?></p>
+                      </div>
 
-                <div class="c-card">
-                  <div class="c-title-sec">
-                    <h5 class="title">Bronze Guest Posting</h5>
-                    <p class="sub-title">Ideal solution for beginners</p>
-                  </div>
+                      <div class="price">
+                        <span class="left-dolor"> $ <?php echo $new_data['original_price']; ?> </span>
+                        <span class="right-dolor"> $ <?php echo $new_data['special_price']; ?> </span>
+                      </div>
 
-                  <div class="price">
-                    <span class="left-dolor"> $ 90 </span>
-                    <span class="right-dolor"> $ 55 </span>
-                  </div>
+                      <div class="card-list">
+                        <h6 class="list-title"><?php echo $new_data['sub_content']; ?></h6>
+                        <ul class="list-ul">
+                            
+                            <?php foreach ((array) $pricing_offer_arr as $featues_data) : setup_postdata($featues_data);
+                            
+                            if($featues_data == $new_data['point_1'] || $featues_data == $new_data['point_2'] || $featues_data == $new_data['point_3'] || $featues_data == $new_data['point_4']) { ?>  
+                            
+                                <li class="list-li">
+                            <?php } else { ?>
+                                <li class="list-wrong-li">
+                            <?php } ?>
+                            
+                                <?php echo $featues_data; ?></li>
+                                
+                            <?php
+                            endforeach;
+                            wp_reset_postdata(); ?>
+                            
+                        </ul>
+                      </div>
 
-                  <div class="card-list">
-                    <h6 class="list-title">Domain Authority- 30+</h6>
-                    <ul class="list-ul">
-                      <li class="list-li">Website Traffic- 600+</li>
-                      <li class="list-li">Content Length- 1000+ Words</li>
-                      <li class="list-li">100% Manual Outreach</li>
-                      <li class="list-li">Niche-Specific Sites Only</li>
-                      <li class="list-li">100% Do-Follow Links</li>
-                      <li class="list-li">1 Anchor Text/Target URL</li>
-                      <li class="list-li">48-Hour Delivery Promise</li>
-                      <li class="list-li">SEO Optimised Content</li>
-                    </ul>
-                  </div>
+                      <div class="actions">
+                        <a href="<?php echo $new_data['add_to_cart_url']; ?>" class="add-to-cart">Add to Cart</a>
+                        <a href="#" class="see-all">(Unlock Coupon Code)</a>
+                      </div>
+                    </div>
+                    
+                <?php endforeach;
+                wp_reset_postdata(); ?>
 
-                  <div class="actions">
-                    <a href="#" class="add-to-cart">Add to Cart</a>
-                    <a href="#" class="see-all">(Unlock Coupon Code)</a>
-                  </div>
-                </div>
+                    
 
-                <div class="c-card">
-                  <div class="c-title-sec">
-                    <h5 class="title">Bronze Guest Posting</h5>
-                    <p class="sub-title">Ideal solution for beginners</p>
                   </div>
-
-                  <div class="price">
-                    <span class="left-dolor"> $ 120 </span>
-                    <span class="right-dolor"> $ 80 </span>
-                  </div>
-
-                  <div class="card-list">
-                    <h6 class="list-title">Domain Authority- 40+</h6>
-                    <ul class="list-ul">
-                      <li class="list-li">Website Traffic- 1k+</li>
-                      <li class="list-li">Content Length- 1500+ Words</li>
-                      <li class="list-li">100% Manual Outreach</li>
-                      <li class="list-li">Niche-Specific Sites Only</li>
-                      <li class="list-li">100% Do-Follow Links</li>
-                      <li class="list-li">1 Anchor Text/Target URL</li>
-                      <li class="list-li">24-Hour Delivery Promise</li>
-                      <li class="list-li">SEO Optimised Content</li>
-                    </ul>
-                  </div>
-
-                  <div class="actions">
-                    <a href="#" class="add-to-cart">Add to Cart</a>
-                    <a href="#" class="see-all">(Unlock Coupon Code)</a>
-                  </div>
-                </div>
-
-                <div class="c-card">
-                  <div class="c-title-sec">
-                    <h5 class="title">Bronze Guest Posting</h5>
-                    <p class="sub-title">Ideal solution for beginners</p>
-                  </div>
-
-                  <div class="price">
-                    <span class="left-dolor"> $ 120 </span>
-                    <span class="right-dolor"> $ 80 </span>
-                  </div>
-
-                  <div class="card-list">
-                    <h6 class="list-title">Domain Authority- 40+</h6>
-                    <ul class="list-ul">
-                      <li class="list-li">Website Traffic- 1k+</li>
-                      <li class="list-li">Content Length- 1500+ Words</li>
-                      <li class="list-li">100% Manual Outreach</li>
-                      <li class="list-li">Niche-Specific Sites Only</li>
-                      <li class="list-li">100% Do-Follow Links</li>
-                      <li class="list-li">1 Anchor Text/Target URL</li>
-                      <li class="list-li">24-Hour Delivery Promise</li>
-                      <li class="list-li">SEO Optimised Content</li>
-                    </ul>
-                  </div>
-
-                  <div class="actions">
-                    <a href="#" class="add-to-cart">Add to Cart</a>
-                    <a href="#" class="see-all">(Unlock Coupon Code)</a>
-                  </div>
-                </div>
-              </div>
+                  
+                  <?php $cs++;
+                endforeach;
+                wp_reset_postdata();
+                } ?>
             </div>
           </div>
         </div>
@@ -490,6 +481,75 @@ foreach ($myvals as $key => $val) {
         </div>
       </section>
 
+      <section class="case-studies-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="title-sec">
+                <h2 class="title"> <?php echo $service_results_title; ?></h2>
+                <p class="sub-title"> <?php echo $service_results_sub_cont; ?></p>
+              </div>
+              <div class="defined-wrapper">
+
+                <?php if (!empty($service_results_data) && is_array($service_results_data)) {
+                $fs = 1;
+                foreach ((array) $service_results_data as $key => $results_data) : setup_postdata($results_data);                
+                  
+                  $title = $results_data['title'];
+                  $image = $results_data['image'];
+                  $desc = $results_data['desc']; ?>
+
+                  <div class="c-card">
+                    <div class="image-cover">
+                      <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>-image" />
+                    </div>
+                    <div class="c-title-sec">
+                      <p class="c-sub-taitle"><?php echo $desc; ?></p>
+                      <h4 class="c-title">
+                        <?php echo $title; ?>
+                      </h4>
+                    </div>
+                  </div>
+
+                <?php $fs++;
+                endforeach;
+                wp_reset_postdata();
+                } ?>
+
+                    <!-- <div class="c-card">
+                      <div class="image-cover">
+                        <img src="<?php echo SGE_URI; ?>/assets/images/home/8.png" alt="" />
+                      </div>
+                      <div class="c-title-sec">
+                        <p class="c-sub-taitle">
+                          Markting, Sales, SEO, Visitor, Web
+                        </p>
+                        <h4 class="c-title">
+                          SEO agency have over 40+ years combined
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="c-card">
+                      <div class="image-cover">
+                        <img src="<?php echo SGE_URI; ?>/assets/images/home/9.png" alt="" />
+                      </div>
+                      <div class="c-title-sec">
+                        <p class="c-sub-taitle">
+                          Markting, Sales, SEO, Visitor, Web
+                        </p>
+                        <h4 class="c-title">
+                          SEO agency have over 40+ years combined
+                        </h4>
+                      </div>
+                    </div> -->
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="features-section">
         <div class="container">
           <div class="title-sec">
@@ -531,67 +591,7 @@ foreach ($myvals as $key => $val) {
         </div>
       </section>
 
-      <section class="case-studies-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="title-sec">
-                <h2 class="title">
-                  excellence defined by
-                  <span class="text-highlight"></span> results
-                </h2>
-                <p class="sub-title">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Voluptatibus quae impedit quidem <br />
-                  assumenda atque ullam ratione sunt fuga quis
-                </p>
-              </div>
-              <div class="defined-wrapper">
-
-                <div class="c-card">
-                  <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/home/7.png" alt="" />
-                  </div>
-                  <div class="c-title-sec">
-                    <p class="c-sub-taitle">
-                      Markting, Sales, SEO, Visitor, Web
-                    </p>
-                    <h4 class="c-title">
-                      SEO agency have over 40+ years combined
-                    </h4>
-                  </div>
-                </div>
-                <div class="c-card">
-                  <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/home/8.png" alt="" />
-                  </div>
-                  <div class="c-title-sec">
-                    <p class="c-sub-taitle">
-                      Markting, Sales, SEO, Visitor, Web
-                    </p>
-                    <h4 class="c-title">
-                      SEO agency have over 40+ years combined
-                    </h4>
-                  </div>
-                </div>
-                <div class="c-card">
-                  <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/home/9.png" alt="" />
-                  </div>
-                  <div class="c-title-sec">
-                    <p class="c-sub-taitle">
-                      Markting, Sales, SEO, Visitor, Web
-                    </p>
-                    <h4 class="c-title">
-                      SEO agency have over 40+ years combined
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <!-- TODO: Create Benifits section -->
       <section class="benifits-section">
@@ -599,35 +599,23 @@ foreach ($myvals as $key => $val) {
           <div class="row">
             <div class="col-md-12">
               <div class="title-sec">
-                <h2 class="title">Lorem ipsum, dolor sit amet consectetur</h2>
-                <p class="sub-title">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-                  natus molestias ullam provident, <br />
-                  laudantium debitis eius dolores a assumenda sed perspiciatis
-                  optio earum exercitationem
+                <h2 class="title"><?php echo $service_create_benifits_title; ?></h2>
+                <p class="sub-title"><?php echo $service_create_benifits_sub_cont; ?>
                 </p>
               </div>
 
               <div class="banifite-wrapper mb-5">
                 <div class="col-md-3">
                   <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/services/mobile.png" alt="" />
+                    <img src="<?php echo $service_create_benifits_first_image; ?>" alt="" />
                   </div>
                 </div>
                 <div class="col-md-9">
                   <div class="cover">
-                    <h4 class="title">
+                    <h4 class="title"> <?php echo $service_create_benifits_first_title; ?>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </h4>
-                    <p class="sub-desc">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Labore ratione ad autem tenetur. Mollitia porro nulla
-                      saepe, et voluptates fugiat, nam temporibus quis quas vel
-                      ratione voluptatum enim, optio excepturi! Lorem ipsum
-                      dolor, sit amet consectetur adipisicing elit. Vero quasi
-                      officiis nesciunt voluptate voluptatibus similique maxime
-                      ullam aliquid nulla unde ipsa nostrum optio corporis quas,
-                      illo illum, eius aliquam accusantium.
+                    <p class="sub-desc"> <?php echo $service_create_benifits_first_cont; ?>                      
                     </p>
                   </div>
                 </div>
@@ -635,27 +623,19 @@ foreach ($myvals as $key => $val) {
               <div class="banifite-wrapper">
                 <div class="col-md-3">
                   <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/services/target.png" alt="" />
+                    <img src="<?php echo $service_create_benifits_second_image; ?>" alt="" />
                   </div>
                 </div>
                 <div class="col-md-9">
                   <div class="cover">
-                    <h4 class="title">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </h4>
-                    <p class="sub-desc">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Labore ratione ad autem tenetur. Mollitia porro nulla
-                      saepe, et voluptates fugiat, nam temporibus quis quas vel
-                      ratione voluptatum enim, optio excepturi! Lorem ipsum
-                      dolor, sit amet consectetur adipisicing elit. Vero quasi
-                      officiis nesciunt voluptate voluptatibus similique maxime
-                      ullam aliquid nulla unde ipsa nostrum optio corporis quas,
-                      illo illum, eius aliquam accusantium.
+                    <h4 class="title"> <?php echo $service_create_benifits_second_title; ?></h4>
+                    <p class="sub-desc"> <?php echo $service_create_benifits_second_cont; ?>                      
                     </p>
                   </div>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>
@@ -667,32 +647,36 @@ foreach ($myvals as $key => $val) {
         <div class="half-carve"></div>
         <div class="container">
           <div class="title-sec">
-            <h2 class="title">
-              Flexible Authority<span class="text-highlight"> Boosters</span>
-            </h2>
+            <h2 class="title"><?php echo $service_boosters_title; ?></h2>
             <p class="sub-title">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-              consectetur praesentium <br />magni necessitatibus eligendi
-              officiis sapiente eos, facere,
+              <?php echo $service_boosters_sub_cont; ?>
             </p>
           </div>
           <div class="loncher-wrapper">
-            <img
-              class="rocket"
-              src="<?php echo SGE_URI; ?>/assets/images/services/rocket.png"
-              alt=""
-            />
+            <img class="rocket" src="<?php echo SGE_URI; ?>/assets/images/services/rocket.png" alt="booster-image"/>
           </div>
           <div class="grid-wrapper">
-            <div class="c-card">
-              <h4 class="title">DA</h4>
-              <p class="sub-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat fugiat perspiciatis modi? Animi doloremque consequuntur
-                temporibus
-              </p>
-            </div>
-            <div class="c-card">
+
+
+            <?php if (!empty($service_boosters_data) && is_array($service_boosters_data)) {
+            foreach ((array) $service_boosters_data as $key => $boosters_data) : setup_postdata($boosters_data);
+            
+              $title = $boosters_data['title'];
+              $desc = $boosters_data['desc']; ?>
+
+              <div class="c-card">
+                <h4 class="title"><?php echo $title; ?></h4>
+                <p class="sub-title">
+                  <?php echo $desc; ?>
+                </p>
+              </div>
+
+            <?php endforeach;
+            wp_reset_postdata();
+            } ?>
+
+
+            <!-- <div class="c-card">
               <h4 class="title">Traffic</h4>
               <p class="sub-title">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -715,7 +699,7 @@ foreach ($myvals as $key => $val) {
                 Repellat fugiat perspiciatis modi? Animi doloremque consequuntur
                 temporibus
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -725,14 +709,8 @@ foreach ($myvals as $key => $val) {
           <div class="row">
             <div class="col-md-12">
               <div class="sec-title">
-                <h2 class="title">
-                  Our Clients Vouch for
-                  <span class="text-highlight"> Our Services</span>
-                </h2>
-                <p class="sub-title">
-                  When you get the best quality contextual backlinks to improve
-                  the authority of your websites at half the standard cost,
-                </p>
+                <h2 class="title"> <?php echo $service_testimonial_title; ?></h2>
+                <p class="sub-title"> <?php echo $service_testimonial_sub_cont; ?></p>
               </div>
               <div class="testimonials-wrapper">
 

@@ -101,8 +101,8 @@ body {
     padding: 0.7rem 0 0.7rem 0;
     background: alpha(var(--secondary), 0.9);
 
-    .copyright-text{
-      @include mq($until: tablet){
+    .copyright-text {
+      @include mq($until: tablet) {
         text-align: center;
       }
       margin: 0;
@@ -113,18 +113,18 @@ body {
       margin: 0;
       padding: 0;
       list-style: none;
-      float:right;
+      float: right;
       @include mq($until: tablet) {
-        display:flex;
-        justify-content:center;
-        float: none;;
+        display: flex;
+        justify-content: center;
+        float: none;
       }
-      .list-item{
+      .list-item {
         margin: 0;
         padding: 0 1.5vmin;
         display: inline-block;
-        .s-link{
-          .image{
+        .s-link {
+          .image {
             display: grid;
             width: calc(12px + 2vmin);
           }
@@ -156,4 +156,8 @@ body {
   &:hover {
     transform: translateY(-2vmin);
   }
+}
+
+.bg-grey {
+  background: alpha(var(--secondary), 0.03);
 }

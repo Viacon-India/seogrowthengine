@@ -5,7 +5,7 @@ function my_custom_post_type_add_func() {
   $post_type = array(
     //array( 'name' => 'Testimonial', 'slug' => 'testimonial'),
     array( 'name' => 'Our Clients', 'slug' => 'our-clients'),
-    //array( 'name' => 'Portfolio', 'slug' => 'portfolio'),
+    array( 'name' => 'FAQ', 'slug' => 'faq'),
     //array( 'name' => 'Case Study', 'slug' => 'case-study'),
   );
 
@@ -25,7 +25,7 @@ function my_custom_post_type_add_func() {
         'not_found_in_trash' => __( 'No '.$posttype['name'].' found in the Trash' ),
         'menu_name'          => $posttype['name']
     );
-    if($posttype['slug'] == 'our-clients') {
+    //if($posttype['slug'] == 'our-clients') {
         $args = array(
             'labels'        => $labels,
             'description'   => 'Holds our specific data',
@@ -37,7 +37,7 @@ function my_custom_post_type_add_func() {
                 'with_front' => false
             )
         );
-    } elseif($posttype['slug'] == 'testimonial' || $posttype['slug'] == 'partner') {
+    /* } elseif($posttype['slug'] == 'testimonial' || $posttype['slug'] == 'partner') {
         $args = array(
             'labels'        => $labels,
             'description'   => 'Holds our specific data',
@@ -62,7 +62,7 @@ function my_custom_post_type_add_func() {
                 'with_front' => false
             )
         );
-    }
+    } */
     register_post_type( $posttype['slug'], $args );
 
   }

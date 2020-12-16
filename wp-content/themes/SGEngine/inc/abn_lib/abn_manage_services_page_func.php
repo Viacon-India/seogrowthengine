@@ -14,17 +14,15 @@ function abn_service_banner_meta() {
 	) );
 
 	$service_banner_meta->add_field( array(
-		'name'    => 'Image',
-		'id'      => $prefix.'image',
+		'name'    => 'Video',
+		'id'      => $prefix.'video_url',
 		'type'    => 'file',		
 		'text'    => array(
 			'add_upload_file_text' => 'Add File'
 		),
 		'query_args' => array(
 			'type' => array(
-			 	'image/gif',
-			 	'image/jpeg',
-			 	'image/png',
+			 	'video/mp4',
 			),
 		),
 		'preview_size' => array( 150, 150 ),
@@ -108,7 +106,9 @@ function abn_service_pricing_meta() {
 			'style'		=>'width: 100%; height: 100px;'
 		)
 	) );
-	/* $service_pricing_id = $service_pricing_meta->add_field( array(
+
+	/*****************/
+	$service_pricing_id = $service_pricing_meta->add_field( array(
         'id'          => $prefix .'data',
         'type'        => 'group',
         'options'     => array(
@@ -119,13 +119,13 @@ function abn_service_pricing_meta() {
         ),
     ) );
 	$service_pricing_meta->add_group_field( $service_pricing_id, array(
-        'name'       => esc_html__( 'Number', 'cmb2' ),
-        'id'         => 'number',
+        'name'       => esc_html__( 'Title', 'cmb2' ),
+        'id'         => 'title',
         'type'       => 'text',
 		'attributes'  => array(
-			'placeholder' => 'Enter Number', 'style' =>'width:500px;'
+			'placeholder' => 'Enter Title', 'style' =>'width:500px;'
 		)
-	) ); */
+	) );
 }
 
 add_action( 'cmb2_init', 'abn_service_how_it_works' );
@@ -137,7 +137,6 @@ function abn_service_how_it_works() {
 		'title'        => 'How it works',
 		'object_types' => array( 'page' ),
 		'show_on'   => array( 'key' => 'page-template', 'value' => 'page-template/services-temp.php' ),
-		//'show_on'      => array( 'id' => 14 ),
 		'context'      => 'normal', //  'normal', 'advanced', or 'side'
 		'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
 		'show_names'   => true, // Show field names on the left
@@ -843,3 +842,294 @@ add_action( 'cmb2_init', 'abn_service_fourth_scoll_meta' );
 	) );
 }
 add_action( 'cmb2_init', 'abn_service_faq_meta' );*/
+
+add_action( 'cmb2_init', 'abn_service_results' );
+function abn_service_results() {
+
+	$prefix = 'service_results_';
+	$service_results_meta = new_cmb2_box( array(
+		'id'           => 'results',
+		'title'        => 'Results',
+		'object_types' => array( 'page' ),
+		'show_on'   => array( 'key' => 'page-template', 'value' => 'page-template/services-temp.php' ),
+		'context'      => 'normal', //  'normal', 'advanced', or 'side'
+		'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+		'show_names'   => true, // Show field names on the left
+	) );
+	$service_results_meta->add_field( array(
+		'name' => 'Title',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'title',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+	$service_results_meta->add_field( array(
+		'name' => 'Sub Content',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'sub_cont',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );	
+	$service_results_id = $service_results_meta->add_field( array(
+        'id'          => $prefix .'data',
+        'type'        => 'group',
+        'options'     => array(
+            'group_title'   => esc_html__( 'Section {#}', 'cmb2' ), // {#} gets replaced by row number
+            'add_button'    => esc_html__( 'Add Another Section', 'cmb2' ),
+            'remove_button' => esc_html__( 'Remove Section', 'cmb2' ),
+            'sortable'      => true,
+        ),
+    ) );
+	$service_results_meta->add_group_field( $service_results_id, array(
+        'name'       => esc_html__( 'Title', 'cmb2' ),
+        'id'         => 'title',
+        'type'       => 'text',
+		'attributes'  => array(
+			'placeholder' => 'Enter Title', 'style' =>'width:500px;'
+		)
+	) );
+	$service_results_meta->add_group_field( $service_results_id, array(
+		'name'    => 'Image',
+		'id'      => 'image',
+		'type'    => 'file',		
+		'text'    => array(
+			'add_upload_file_text' => 'Add File'
+		),
+		'query_args' => array(
+			'type' => array(
+			 	'image/gif',
+			 	'image/jpeg',
+			 	'image/png',
+			),
+		),
+	) );
+	$service_results_meta->add_group_field( $service_results_id, array(
+        'name'       => esc_html__( 'Description', 'cmb2' ),
+        'id'         => 'desc',
+        'type'       => 'wysiwyg',
+		'attributes'  => array(
+			'placeholder' => 'Enter Description', 'style' =>'width:500px;'
+		)
+	) );
+}
+
+
+add_action( 'cmb2_init', 'abn_service_create_benifits' );
+function abn_service_create_benifits() {
+
+	$prefix = 'service_create_benifits_';
+	$service_create_benifits_meta = new_cmb2_box( array(
+		'id'           => 'create_benifits',
+		'title'        => 'Create Benfifits',
+		'object_types' => array( 'page' ),
+		'show_on'   => array( 'key' => 'page-template', 'value' => 'page-template/services-temp.php' ),
+		'context'      => 'normal', //  'normal', 'advanced', or 'side'
+		'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+		'show_names'   => true, // Show field names on the left
+	) );
+	$service_create_benifits_meta->add_field( array(
+		'name' => 'Title',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'title',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+	$service_create_benifits_meta->add_field( array(
+		'name' => 'Sub Content',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'sub_cont',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );	
+	$service_create_benifits_meta->add_field( array(
+		'name' => 'First Title',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'first_title',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+	$service_create_benifits_meta->add_field( array(
+		'name'    => 'First Image',
+		'id'      => $prefix.'first_image',
+		'type'    => 'file',		
+		'text'    => array(
+			'add_upload_file_text' => 'Add File'
+		),
+		'query_args' => array(
+			'type' => array(
+			 	'image/gif',
+			 	'image/jpeg',
+			 	'image/png',
+			),
+		),
+	) );
+	$service_create_benifits_meta->add_field( array(
+		'name' => 'First Content',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'first_cont',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+
+
+	$service_create_benifits_meta->add_field( array(
+		'name' => 'Second Title',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'second_title',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+	$service_create_benifits_meta->add_field( array(
+		'name'    => 'Second Image',
+		'id'      => $prefix.'second_image',
+		'type'    => 'file',		
+		'text'    => array(
+			'add_upload_file_text' => 'Add File'
+		),
+		'query_args' => array(
+			'type' => array(
+			 	'image/gif',
+			 	'image/jpeg',
+			 	'image/png',
+			),
+		),
+	) );
+	$service_create_benifits_meta->add_field( array(
+		'name' => 'Second Content',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'second_cont',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+}
+
+add_action( 'cmb2_init', 'abn_service_boosters' );
+function abn_service_boosters() {
+
+	$prefix = 'service_boosters_';
+	$service_boosters_meta = new_cmb2_box( array(
+		'id'           => 'boosters',
+		'title'        => 'Boosters',
+		'object_types' => array( 'page' ),
+		'show_on'   => array( 'key' => 'page-template', 'value' => 'page-template/services-temp.php' ),
+		'context'      => 'normal', //  'normal', 'advanced', or 'side'
+		'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+		'show_names'   => true, // Show field names on the left
+	) );
+	$service_boosters_meta->add_field( array(
+		'name' => 'Title',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'title',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+	$service_boosters_meta->add_field( array(
+		'name' => 'Sub Content',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'sub_cont',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );	
+	$service_boosters_id = $service_boosters_meta->add_field( array(
+        'id'          => $prefix .'data',
+        'type'        => 'group',
+        'options'     => array(
+            'group_title'   => esc_html__( 'Section {#}', 'cmb2' ), // {#} gets replaced by row number
+            'add_button'    => esc_html__( 'Add Another Section', 'cmb2' ),
+            'remove_button' => esc_html__( 'Remove Section', 'cmb2' ),
+            'sortable'      => true,
+        ),
+    ) );
+	$service_boosters_meta->add_group_field( $service_boosters_id, array(
+        'name'       => esc_html__( 'Title', 'cmb2' ),
+        'id'         => 'title',
+        'type'       => 'text',
+		'attributes'  => array(
+			'placeholder' => 'Enter Title', 'style' =>'width:500px;'
+		)
+	) );
+	$service_boosters_meta->add_group_field( $service_boosters_id, array(
+        'name'       => esc_html__( 'Description', 'cmb2' ),
+        'id'         => 'desc',
+        'type'       => 'wysiwyg',
+		'attributes'  => array(
+			'placeholder' => 'Enter Description', 'style' =>'width:500px;'
+		)
+	) );
+}
+
+
+add_action( 'cmb2_init', 'abn_footer_faq' );
+function abn_footer_faq() {
+
+	$prefix = 'footer_faq_';
+	$service_benefits_meta = new_cmb2_box( array(
+		'id'           => 'faq',
+		'title'        => 'FAQ',
+		'object_types' => array( 'page' ),
+		'show_on'   => array( 'key' => 'page-template', 'value' => 'page-template/services-temp.php' ),
+		//'show_on'      => array( 'id' => 14 ),
+		'context'      => 'normal', //  'normal', 'advanced', or 'side'
+		'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+		'show_names'   => true, // Show field names on the left
+	) );
+	$service_benefits_meta->add_field( array(
+		'name' => 'Title',
+		'type' => 'text',
+		'id'   => $prefix.'title',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+	$service_benefits_meta->add_field( array(
+		'name' => 'Description',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'desc',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+}
+
+
+add_action( 'cmb2_init', 'abn_service_testimonial' );
+function abn_service_testimonial() {
+
+	$prefix = 'service_testimonial_';
+	$service_testimonial_meta = new_cmb2_box( array(
+		'id'           => 'testimonial',
+		'title'        => 'Testimonial',
+		'object_types' => array( 'page' ),
+		'show_on'   => array( 'key' => 'page-template', 'value' => 'page-template/services-temp.php' ),
+		'context'      => 'normal', //  'normal', 'advanced', or 'side'
+		'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+		'show_names'   => true, // Show field names on the left
+	) );
+	$service_testimonial_meta->add_field( array(
+		'name' => 'Title',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'title',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+	$service_testimonial_meta->add_field( array(
+		'name' => 'Sub Content',
+		'type' => 'wysiwyg',
+		'id'   => $prefix.'sub_cont',
+		'attributes' => array(
+			'style'		=>'width: 100%;'
+		)
+	) );
+}
+

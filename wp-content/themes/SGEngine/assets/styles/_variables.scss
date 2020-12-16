@@ -58,11 +58,8 @@ $my-border-radii: (
   );
 
   // Shadows
-  --shadow-primary: 0 3px 3.2vmin -5px #{alpha(
-      var(--color-shadow-primary),
-      0.2
-    )};
-  --shadow-deep: 0 2px 3vmin -5px #{alpha(var(--color-shadow-primary), 0.3)};
+  --shadow-primary: 0 3px 2vmin -5px #{alpha(var(--color-shadow-primary), 0.15)};
+  --shadow-deep: 0 2px 2.5vmin -5px #{alpha(var(--color-shadow-primary), 0.3)};
 
   // Generating font variables
   @each $type, $family in $my-theme-fonts {

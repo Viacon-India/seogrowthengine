@@ -13,6 +13,30 @@ Text Domain: ftf
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+.authority-wrapper li.list-li {
+    display: -webkit-inline-box !important;
+}
+.authority-wrapper li.list-wrong-li {
+    /* float: left; */
+    line-height: 2;
+    display: -webkit-box;
+    display: -webkit-inline-box !important;
+    float: left;
+    display: flex;
+    font-size: calc(8px + 1vmin);
+}
+.authority-wrapper li.list-wrong-li:before {
+    display: block;
+    content: "";
+    background-image: url(//seogrowthengine.com/wp-content/themes/SGEngine/assets/styles/../icon/wrong.svg);
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    top: 1.8vmin;
+    position: relative;
+    margin: 0 1vmin 0 0;
+}
 ui.sidebar-social-link li {
   list-style: none;
   /* border-bottom: 1px solid #fe736b; */

@@ -1,6 +1,11 @@
 .service-banner {
   background: none;
-  padding: 5rem 0rem;
+  user-select: none;
+  padding: calc(10px + 2vmin);
+
+  @include mq($from: desktop) {
+    padding: 5rem 0rem;
+  }
 
   .content-part {
     .title-sec {
@@ -8,60 +13,76 @@
         font-weight: 800;
         color: var(--secondary);
         line-height: 1.5;
-        font-size: calc(25px + 3vmin);
+        font-size: calc(15px + 4vmin);
+
+        @include mq($until: tablet) {
+          text-align: center;
+        }
 
         .text-highlight {
           color: var(--primary);
         }
-        @include mq($until: tablet){
-          text-align: center;
-        }
       }
     }
+
     .btn-section {
       margin-top: 3vmax;
-      @include mq($until: tablet){
+
+      @include mq($until: tablet) {
         text-align: center;
       }
     }
   }
+
   .banner-image {
-    img {
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    display: block;
+    border-bottom: 2px solid var(--primary);
+    // min-height: calc(100px + 30vh);
+
+    & > * {
       @include full-fit;
-    }
-    @include mq($until: tablet){
-      display:none;
     }
   }
 } // End of: Banner
 
 .clients-section {
-  margin: 0 0;
+  margin: calc(20px + 5vmin) 0 0 0;
+
   .sec-image {
+    @extend .d-block, .ml-lg-auto, .m-auto;
     margin-bottom: -0.09rem;
-    float: right;
+    // float: right;
 
     @include mq($until: tablet) {
-    margin:0;
-    width:100% !important;
-    object-fit:cover; 
+      margin: 0;
+      width: 100% !important;
+      object-fit: cover;
     }
   }
+
   .title-container {
     height: 100%;
     display: flex;
     align-items: baseline;
     justify-content: center;
     flex-direction: column;
+
     @include mq($until: tablet) {
       text-align: center;
       display: block;
     }
+
     .sec-title {
+      @extend .m-auto, .py-3;
       font-family: var(--font-primary);
+
       @include mq($until: tablet) {
-        margin-top: 3vmax ;
+        margin-top: 3vmax;
       }
+
       .title {
         font-weight: 800;
         font-size: calc(3vmin + 25px);
@@ -71,11 +92,11 @@
           color: var(--primary);
           margin: 0px;
         }
-        @include mq($until: tablet){
+        @include mq($until: tablet) {
           font-size: calc(2vmin + 20px);
         }
       }
-      .sub-title{
+      .sub-title {
         font-size: calc(1.5vmin + 15px);
       }
     }
@@ -84,7 +105,13 @@
   .trusted-wrapper {
     background: var(--gradient-primary);
     border-radius: 18vmin 18vmin 0px 0px;
-    @include grid-columns(calc(105px + 5vmax));
+    overflow: hidden;
+    // @include grid-columns(calc(105px + 5vmax));
+
+    .swiper-pagination-bullet-active {
+      background: var(--light) !important;
+    }
+
     @include mq($until: tablet) {
       @include grid-columns(calc(105px + 5vmax));
     }
@@ -95,9 +122,12 @@
       place-items: center;
       padding: 5rem 1rem;
       filter: brightness(0) invert(1);
-      @include mq($until: tablet){
+      @include mq($until: tablet) {
         padding: 2rem 1rem;
       }
+
+      @include align-center-grid;
+      width: 100%;
 
       &:hover {
         text-decoration: none;
@@ -117,7 +147,7 @@
 
 .pricing-section {
   padding: 5rem 0 0 0;
-  background: alpha(var(--dark), 0.1);
+  @extend .bg-grey;
 
   .title-sec {
     text-align: center;
@@ -138,7 +168,7 @@
 
   .authority-nav {
     @include grid-columns(calc(150px + 5vmax));
-    @extend .bg-light;
+    @extend .bg-white;
     border-radius: var(--border-radius);
     margin: 2rem 0 0 0;
 
@@ -146,7 +176,8 @@
       @extend .bg-hover-secondary,
         .text-secondary,
         .text-center,
-        .text-uppercase;
+        .text-uppercase,
+        .bg-white;
       padding: 2.2vmin 0;
       border-radius: var(--border-radius);
       overflow: hidden;
@@ -165,7 +196,7 @@
     margin: 4rem 0;
 
     .c-card {
-      @extend .bg-light, .p-4, .text-center, .shift-on-hover;
+      @extend .bg-white, .p-4, .text-center, .shift-on-hover;
       box-shadow: var(--shadow-primary);
       border-radius: var(--border-radius);
       border: 1px solid transparent;
@@ -226,6 +257,8 @@
       } //need to be cenert this sec
 
       .card-list {
+        @extend .text-left;
+
         .list-ul {
           margin: 0;
           list-style: none;
@@ -307,7 +340,7 @@
     counter-set: break-barriers-card-count 0;
 
     .c-card {
-      @extend .bg-light, .bg-hover-primary;
+      @extend .bg-white, .bg-hover-primary;
       border-radius: var(--border-radius);
       padding: 1.5rem;
       position: relative;
@@ -376,7 +409,7 @@
 } // End of: How it works section
 
 .why-choose-section {
-  background: alpha(var(--dark), 0.1);
+  @extend .bg-grey;
   padding: 6vmax 0;
 
   .title-sec {
@@ -401,7 +434,7 @@
     }
 
     .c-card {
-      @extend .bg-light, .bg-hover-primary;
+      @extend .bg-white, .bg-hover-primary;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--shadow-primary);
@@ -426,11 +459,12 @@
         justify-content: flex-start;
 
         .icon-cover {
-          width: 2rem;
-          height: 2rem;
+          width: calc(10px + 6vmin);
+          height: calc(10px + 6vmin);
 
           .icon {
             @include full-fit;
+            object-fit: contain;
             filter: brightness(0);
           }
         }
@@ -445,14 +479,14 @@
       .c-describ {
         @extend .text-muted;
         margin: 1vmax 0 0 0;
-        font-size: calc(10px + 1vmin);
+        font-size: calc(10px + 0.8vmin);
       }
     }
   }
 } // End of: Why choose section
 
 .guarantee-section {
-  padding: 2rem 0;
+  padding-top: 2rem;
 
   .post-wrapper {
     overflow: hidden;
@@ -466,9 +500,9 @@
       height: 100%;
 
       .icon-sec {
-        padding: 8vmin;
+        padding: 2vmin;
         @include full-fit(contain);
-        @include color-overlay(var(--primary));
+        // @include color-overlay(var(--primary));
 
         img {
           @include full-fit(contain);
@@ -485,170 +519,91 @@
       .title {
         font-weight: 700;
         font-size: calc(1.5vmin + 30px);
-        color: lightness(var(--dark), 1.2);
+        // color: lightness(var(--dark), 1.2);
+        color: var(--primary);
+
         @include mq($until: tablet) {
-         text-align:center;
+          text-align: center;
         }
       }
     }
   }
 } // End of: Guarantee section
 
-.customer-reviews{
-  padding :2vmin 0;
-  .reviews-wrapper{
+.customer-reviews {
+  padding-bottom: calc(20px + 5vmin);
+  // @extend .bg-primary;
+
+  .reviews-wrapper {
     @include grid-columns(calc(150px + 5vmax), 1.7rem);
-    .cr-card{
-      border-radius: 1vmin;
-      background: var(--light);
+
+    .cr-card {
+      border-radius: 8px;
+      background: var(--white);
       box-shadow: var(--shadow-primary);
-      padding:2vmin ;
-      .c-profile{
-        display: flex;
-        .profle-image{
-          width: 3rem ;
-          height: 3rem;
-          border-radius: 50%;
-          border:1px solid ;
-          .image{
-            @include full-fit;
-          }
-        }
-        .profile-describe{
-          padding :0 0 0 1rem;
-          .name{
-            font-size: calc(8px + .8vmin);
-            margin: 0;
-          }
-          .profation{
-            font-size: calc(8px + 1vmin);
-            margin: 0;
-          }
-
-        }
-
-      }
-      .rating{
-        display: flex;
-        justify-content: center;
-        i{
-          color:var(--primary);
-        }
-      }
-      .comment{
-         font-size:calc(8px + .5vmin);
-         margin: 0;
-         @include line-clamp(3);
-      }
-    }
-  }
-
-}//end of tht customer-reviews sec
-
-.features-section {
-  padding: 5rem 0;
-
-  .title-sec {
-    text-align: center;
-
-    .title {
-      color: var(--secondary);
-
-      .text-highlight {
-        color: var(--primary);
-      }
-    }
-  }
-
-  .reasons-wrapper {
-    @include grid-columns(calc(205px + 5vmax), 3.5rem);
-    padding: 2rem 0 1rem 0;
-
-    .c-card {
-      border-radius: var(--border-radius);
-
-      .title-sec {
-        display: flex;
-        flex-direction: row;
-        vertical-align: meddil;
-        padding: 0.5rem 0;
-        border-radius: var(--border-radius);
-        position: relative;
-        color: var(--secondary);
-
-        .icon {
-          // width: 35px;
-          display: inline-block;
-          margin: -1vmin 0 0vmin 0vmin;
-
-          img {
-            @include full-fit;
-          }
-
-        }
-
-        .title {
-          color: inherit;
-          font-size: calc(16px + 1vmin);
-        }
-      } // end taitel
-
-      .sub-title-sec {
-        padding: 2vmin;
-
-        .sub-title {
-          @extend .text-muted;
-          font-size: calc(10px + 0.6vmin);
-          margin: 0px;
-        }
-      }
-
-      & {
-        box-shadow: 0 0 1rem -4px #{alpha(var(--color-shadow-primary), 0.3)};
-        cursor: pointer;
-        transition: 0.2;
-
-        .title-sec {
-          @extend .bg-primary, .text-light;
-        }
-
-        .icon {
-          @extend .bg-primary;
-          @include size(60px);
-          border-radius: 50%;
-          padding: 2vmin;
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          transform: translate(-40%, 0);
-          @include mq($until: tablet){
-            @include size(7vmax);
-          }
-
-          img {
-            filter: brightness(0) invert(1);
-          }
-        }
-
-        .title {
-          margin: 0;
-          margin-left: 2.5rem;
-        }
-      }
+      padding: calc(12px + 0.8vmin);
+      transition: transform 0.3s;
+      user-select: none;
 
       &:hover {
-        box-shadow: 0 0 2rem -4px #{alpha(var(--color-shadow-primary), 0.3)};
+        transform: translateY(-10px);
+      }
+
+      .c-profile {
+        display: flex;
+
+        .profle-image {
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+          border: 1px solid var(--primary);
+
+          .image {
+            @include full-fit;
+          }
+        }
+
+        .profile-describe {
+          padding: 0 0 0 1rem;
+          // text-transform: capitalize;
+
+          .name {
+            font-size: calc(8px + 0.8vmin);
+            margin: 0;
+          }
+
+          .profation {
+            @extend .text-muted;
+            font-size: calc(8px + 0.8vmin);
+            margin: 0;
+          }
+        }
+      }
+
+      .rating {
+        display: flex;
+        justify-content: center;
+        i {
+          color: var(--primary);
+        }
+      }
+
+      .comment {
+        @extend .text-muted, .m-0, .mt-2;
+        font-size: calc(10px + 0.5vmin);
+        // @include line-clamp(3);
       }
     }
   }
-} // End of: Features section
+} //end of tht customer-reviews sec
 
 .case-studies-section {
+  @extend .bg-grey;
   // this sec same use to hmome page
   padding: 4vmax 0;
 
   .title-sec {
+    @extend .mb-4;
     text-align: center;
 
     .title {
@@ -704,33 +659,158 @@
     }
   }
 } // End of: Case studies section
-.benifits-section{
-  padding:4vmax 0 ;
-.title-sec{
-  text-align:center;
-  .title {
-    color: var(--secondary);
+
+.features-section {
+  padding: 5rem 0;
+
+  .title-sec {
+    text-align: center;
+
+    .title {
+      color: var(--secondary);
+
+      .text-highlight {
+        color: var(--primary);
+      }
+    }
   }
-  
-}
 
+  .reasons-wrapper {
+    @include grid-columns(calc(205px + 5vmax), 3.5rem);
+    padding: 2rem 0 1rem 0;
 
-  .banifite-wrapper{
-    display: flex;
-    .image-cover{
+    .c-card {
+      @extend .bg-white;
+      border-radius: var(--border-radius);
+      margin-left: 15px;
+
+      .title-sec {
+        display: flex;
+        flex-direction: row;
+        vertical-align: meddil;
+        padding: 0.5rem 0;
+        border-radius: var(--border-radius);
+        position: relative;
+        color: var(--secondary);
+
+        .icon {
+          // width: 35px;
+          display: inline-block;
+          margin: -1vmin 0 0vmin 0vmin;
+
+          img {
+            @include full-fit;
+          }
+        }
+
+        .title {
+          color: inherit;
+          font-size: calc(8px + 0.9vw);
+        }
+      } // end taitel
+
+      .sub-title-sec {
+        padding: calc(10px + 1.5vmin);
+
+        .sub-title {
+          @extend .text-muted;
+          font-size: calc(12px + 0.6vmin);
+          margin: 0px;
+        }
+      }
+
+      & {
+        box-shadow: 0 0 0.5rem -4px #{alpha(var(--color-shadow-primary), 0.35)};
+        cursor: pointer;
+        transition: 0.2s;
+
+        .title-sec {
+          @extend .bg-primary, .text-light;
+        }
+
+        .icon {
+          @extend .bg-primary;
+          @include size(60px);
+          border-radius: 50%;
+          padding: 2vmin;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translate(-40%, 0);
+          @include mq($until: tablet) {
+            @include size(7vmax);
+          }
+
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+
+        .title {
+          margin: 0;
+          margin-left: 2.5rem;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 1.5rem -4px #{alpha(var(--color-shadow-primary), 0.25)};
+      }
+    }
+  }
+} // End of: Features section
+
+.benifits-section {
+  @extend .bg-grey;
+  padding: 4vmax 0;
+
+  .title-sec {
+    @extend .mb-5;
+    text-align: center;
+
+    .title {
+      color: var(--secondary);
+    }
+  }
+
+  .banifite-wrapper {
+    @extend .row;
+
+    &:nth-of-type(even) {
+      flex-direction: row-reverse;
+    }
+
+    [class*="col"] {
+      @include align-center-grid;
+    }
+
+    .image-cover {
       width: 100%;
+
       img {
         @include full-fit;
+        object-fit: contain;
+        max-height: 300px;
       }
     }
-    .cover{
-      .title{
-        font-size:calc(2.5vmin + 10px);
+
+    .cover {
+      @include mq($until: tablet) {
+        margin-top: calc(10px + 2vmin);
+      }
+
+      .title {
+        font-size: calc(10px + 2vmin);
+        color: var(--primary);
+
         @include mq($until: tablet) {
           @include line-clamp(3);
         }
       }
-      .sub-desc{
+
+      .sub-desc {
+        @extend .text-muted;
+
         @include mq($until: tablet) {
           @include line-clamp(3);
         }
@@ -738,13 +818,12 @@
     }
   }
 }
-
 
 .highlights-section {
   width: 100%;
   padding: 5vmax 0 10vmax 0;
   position: relative;
-  @include mq($until: tablet){
+  @include mq($until: tablet) {
     padding: 5vmax 0 5vmax 0;
   }
 
@@ -758,6 +837,7 @@
     @include mq($until: tablet) {
       display: none;
     }
+
     &:nth-of-type(1) {
       border-top-left-radius: 150px;
       border-top-right-radius: 150px;
@@ -765,6 +845,7 @@
       left: 18vmax;
       top: 25vmax;
     }
+
     &:nth-of-type(2) {
       border-top-left-radius: 150px;
       border-top-right-radius: 150px;
@@ -772,6 +853,7 @@
       left: 59vmax;
       top: 25vmax;
     }
+
     &:nth-of-type(3) {
       border-bottom-left-radius: 150px;
       border-bottom-right-radius: 150px;
@@ -783,13 +865,17 @@
 
   .title-sec {
     @include align-center-grid();
+    @extend .mb-5;
+
     .title {
       color: var(--secondary);
-      text-align:center;
+      text-align: center;
+
       .text-highlight {
         color: var(--primary);
       }
     }
+
     .sub-title {
       text-align: center;
       margin: 0px;
@@ -803,6 +889,7 @@
 
   .grid-wrapper {
     @include grid-columns(calc(150px + 5vmax));
+
     .c-card {
       padding: 1rem;
       text-align: center;
@@ -819,13 +906,16 @@
     width: 100%;
     font-weight: 700;
     @include align-center-grid();
+
     .title {
       color: var(--secondary);
-      text-align:center;
+      text-align: center;
+
       .text-highlight {
         color: var(--primary);
       }
     }
+
     .sub-title {
       text-align: center;
       font-size: 16px;
@@ -848,6 +938,7 @@
 
         img {
           @include full-fit;
+          object-position: bottom;
           object-fit: contain;
         }
       }
@@ -870,3 +961,47 @@
     }
   }
 } // End of: Testimonials section
+
+#faq-accodians {
+  @extend .mt-4;
+  // @include grid-columns(400px);
+
+  .card {
+    background: transparent;
+    background: #{lightness(var(--secondary), 1.3)};
+    border: none;
+
+    [data-toggle="collapse"] {
+      &:after {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding-right: 1.725rem;
+        line-height: 51px;
+        font-weight: 900;
+        content: "\F107";
+        font-family: "Font Awesome 5 Free";
+        color: #d1d3e2;
+      }
+
+      &.collapsed:after {
+        content: "\F105";
+      }
+    }
+
+    &:not(:first-of-type) {
+      @extend .mt-3;
+    }
+
+    a[data-toggle="collapse"] {
+      display: inline-block;
+      text-decoration: none;
+      width: 100%;
+      user-select: none;
+    }
+
+    .card-body {
+      color: var(--light);
+    }
+  }
+}

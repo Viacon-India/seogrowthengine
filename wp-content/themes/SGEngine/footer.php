@@ -256,53 +256,7 @@ $abn_linkedin_link = $social_options['abn_linkedin_link'];
         <div class="container">
           <div class="row">
             <div class="col-md-7">
-              <?php echo do_shortcode('[contact-form-7 id="26" title="Contact Form"]'); ?>
-              <!-- <form class="footer-form" action="#">
-                <h3>Connect with us</h3>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Maxime deserunt error saepe dignissimos sit, aut reiciendis
-                  animi neque expedita veritatis?
-                </p>
-                <input
-                  required
-                  class="form-control"
-                  type="text"
-                  name="name"
-                  placeholder="Enter Your Name "
-                />
-                <div class="row">
-                  <div class="col-md-6">
-                    <input
-                      required
-                      class="form-control"
-                      type="text"
-                      name="phone"
-                      placeholder="Enter Phone"
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <input
-                      required
-                      class="form-control"
-                      type="text"
-                      name="email"
-                      placeholder="Enter Your Email"
-                    />
-                  </div>
-                </div>
-                <textarea
-                  required
-                  class="form-control"
-                  name="message"
-                  placeholder="Message"
-                ></textarea>
-                <input
-                  class="btn btn-primary w-25"
-                  type="submit"
-                  value="Submit"
-                />
-              </form> -->
+              <?php echo do_shortcode('[contact-form-7 id="26" title="Contact Form"]'); ?>              
             </div>
             <div class="col-md-5">
               <div class="free-cover">
@@ -324,6 +278,58 @@ $abn_linkedin_link = $social_options['abn_linkedin_link'];
           </div>
         </div>
       </section>
+
+      <?php if(is_page('blogger-outreach-services') || is_page('services')) { ?>
+
+        <section class="faq-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="taitle-sec">
+                  <h2 class="title"><?php echo get_field('footer_faq_title', get_the_ID()); ?></h2>
+                  <p class="sub-title">
+                    <?php echo get_field('footer_faq_desc', get_the_ID()); ?>
+                  </p>
+                </div>
+                <div id="faq-accodians" role="tablist" aria-multiselectable="true">
+
+
+                    <?php $faq_posts = get_posts(array(
+                      'post_type' => 'faq', 
+                      'posts_per_page' => -1, 
+                      'oderby' => 'date', 
+                      'order' => 'DESC'
+                    )); 
+                    $fcount =1;
+                    foreach($faq_posts as $post):setup_postdata($post); ?>
+                    <div class="card">
+                      <div class="card-header" role="tab" id="section<?php echo $fcount; ?>HeaderId">
+                        <h5 class="mb-0">
+                          <a data-toggle="collapse" data-parent="#faq-accodians" href="#section<?php echo $fcount; ?>ContentId" aria-expanded="true" aria-controls="section<?php echo $fcount; ?>ContentId">
+                            <?php the_title(); ?>
+                          </a>
+                        </h5>
+                      </div>
+                      <div
+                        id="section<?php echo $fcount; ?>ContentId" class="collapse in" role="tabpane<?php echo $fcount; ?>" aria-labelledby="section<?php echo $fcount; ?>HeaderId">
+                        <div class="card-body">
+                          <?php the_content(); ?>
+                        </div>
+                      </div>
+                    </div>
+
+                  <?php $fcount++;
+                  endforeach;
+                  wp_reset_postdata(); ?>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <?php } ?>
 
       <section class="copyright">
         <div class="container">
@@ -357,7 +363,7 @@ $abn_linkedin_link = $social_options['abn_linkedin_link'];
             </div>
           </div>
         </div>
-      </section>
+      </section>      
     </footer>
 
     <!-- Scripts -->
@@ -377,6 +383,37 @@ $abn_linkedin_link = $social_options['abn_linkedin_link'];
         $('.home .banner .emaillist input[type="submit"]').addClass('btn btn-light text-primary');
       });
     </script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        var swiper = new Swiper(".trusted-wrapper", {
+          autoplay: {
+            delay: 5000,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+          },
+        });
+      });
+    </script>
+
+    <?php wp_footer(); ?>
 
   </body>
 </html>
