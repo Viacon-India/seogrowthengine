@@ -47,9 +47,19 @@ function mail_test_function() {
 //add_action('wp_head', 'mail_test_function');
 
 
+if(!function_exists('get_custom_slug')) {
+    function get_custom_slug($title) {
+        echo str_replace(" ","_",$title);
+    }
+}
 
 
-
+if(!function_exists('get_limited_content')) {
+    function get_limited_content($content) {
+        $count = 600;
+        echo wpautop(substr($content, 0 , $count));
+    }
+}
 
 
 

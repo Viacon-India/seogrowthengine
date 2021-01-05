@@ -178,24 +178,6 @@ foreach ($myvals as $key => $val) {
                   Book a free Strategy call With Our SEO Ninja
                 </h2>
               </div>
-              <!-- <form class="mt-5">
-                <div class="form-row">
-                  <div class="col-md-8">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter Your e-mail"
-                    />
-                  </div>
-                  <div class="col-md-4">
-                    <input
-                      type="submit"
-                      class="form-control btn btn-secondary"
-                      value="Strategy call"
-                    />
-                  </div>
-                </div>
-              </form> -->
 
               <div class="mt-5">
                 <?php echo do_shortcode('[email-subscribers-form id="1"]'); ?>
@@ -274,101 +256,59 @@ foreach ($myvals as $key => $val) {
 
               <div class="profile-barnd">
                 <div class="col-md-6">
-                  <div class="profile-sec">
-                    <div class="img-cover">
-                      <img
-                        class="image"
-                        src="<?php echo SGE_URI; ?>/assets/images/home/sman.jpg"
-                        alt=""
-                      />
+                  <div class="testimonials-slider">
+                    <div class="swiper-wrapper">
+
+
+                      <?php $testonial_arr = get_posts(array('posts_per_page' => -1, 'post_type' => 'our-clients'));
+
+                      foreach($testonial_arr as $post) : setup_postdata($post); ?>
+
+                      <div class="profile-sec swiper-slide">
+                        <div class="img-cover">
+                          <?php the_post_thumbnail('post-thumbnail', ['class' =>'image']); ?>
+                          <div class="intro">
+                            <h5 class="title"><?php the_title(); ?></h5>
+                          </div>
+                        </div>
+                        <div class="text-sec">
+                          <p class="para-title">
+                            <?php the_content(); ?>
+                          </p>
+                        </div>
+                      </div>
+
+                      <?php endforeach;
+                      wp_reset_postdata(); ?>
                     </div>
-                    <div class="text-sec">
-                      <h5 class="title">Yan Desjardins</h5>
-                      <p class="sub-title">Manager Captain Cash</p>
-                      <p class="para-title">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Omnis, dolorum? Blanditiis obcaecati quia
-                        voluptate dignissimos et nostrum ullam, amet natus dolor
-                        ad eos excepturi est sapiente reprehenderit vitae
-                        doloremque quas?
-                      </p>
-                    </div>
+
+                    <div class="swiper-pagination"></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="brand-wrapper">
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/PhonePe-Logo.svg"
-                        alt=""
-                      />
+                    <div class="swiper-wrapper">
+
+                      <?php if (!empty($home_brand_data) && is_array($home_brand_data)) {
+                      foreach ((array) $home_brand_data as $key => $brand_data) : setup_postdata($brand_data);                
+                        $image = $brand_data['image']; ?>
+
+
+                      <div class="brand-card swiper-slide">
+                        <img
+                          class="b-image"
+                          src="<?php echo $image; ?>"
+                          alt=""
+                        />
+                      </div>
+
+                      <?php endforeach;
+                      wp_reset_postdata();
+                      } ?> 
+
                     </div>
 
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/amazon-pay.svg"
-                        alt=""
-                      />
-                    </div>
-
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/razorpay.svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/paypal(1).svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/snapdeal-seeklogo.com.svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/paytm.svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/google-pay-primary-logo.svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/flipkart.svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/PhonePe-Logo.svg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="brand-card">
-                      <img
-                        class="b-image"
-                        src="<?php echo SGE_URI; ?>/assets/icon/home-barnd/PhonePe-Logo.svg"
-                        alt=""
-                      />
-                    </div>
+                    <div class="swiper-pagination"></div>
                   </div>
                 </div>
               </div>

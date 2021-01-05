@@ -245,6 +245,46 @@ function abn_home_third_scroll() {
 	) );
 }
 
+add_action( 'cmb2_init', 'abn_home_brand' );
+function abn_home_brand() {
+
+	$prefix = 'home_brand_';
+	$home_third_scroll_meta = new_cmb2_box( array(
+		'id'           => 'logo_meta',
+		'title'        => 'Brand Logo',
+		'object_types' => array( 'page' ),
+		'show_on'   => array( 'key' => 'page-template', 'value' => 'page-template/front-temp.php' ),
+		//'show_on'      => array( 'id' => 14 ),
+		'context'      => 'normal', //  'normal', 'advanced', or 'side'
+		'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+		'show_names'   => true, // Show field names on the left
+	) );
+	$third_scroll_id = $home_third_scroll_meta->add_field( array(
+        'id'          => $prefix .'data',
+        'type'        => 'group',
+        'options'     => array(
+            'group_title'   => esc_html__( 'Logo {#}', 'cmb2' ), // {#} gets replaced by row number
+            'add_button'    => esc_html__( 'Add Another Logo', 'cmb2' ),
+            'remove_button' => esc_html__( 'Remove Logo', 'cmb2' ),
+            'sortable'      => true,
+        ),
+    ) );
+	$home_third_scroll_meta->add_group_field( $third_scroll_id, array(
+		'name'    => 'Image',
+		'id'      => 'image',
+		'type'    => 'file',		
+		'text'    => array(
+			'add_upload_file_text' => 'Add File'
+		),
+		'query_args' => array(
+			'type' => array(
+			 	'image/gif',
+			 	'image/jpeg',
+			 	'image/png',
+			),
+		),
+	) );
+}
 /*
 add_action( 'cmb2_init', 'abn_dm_solution_meta' );
 function abn_dm_solution_meta() {

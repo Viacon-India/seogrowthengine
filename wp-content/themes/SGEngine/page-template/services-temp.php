@@ -51,86 +51,178 @@ foreach ($myvals as $key => $val) {
             <div class="col-md-6">
               <img
                 class="sec-image"
-                src="<?php echo SGE_URI; ?>/assets/images/services/humans.png"
-                alt=""
+                src="<?php echo $service_guest_image; ?>"
+                alt="guest-side-image"
               />
             </div>
             <div class="col-md-6">
               <div class="title-container">
                 <div class="sec-title">
                   <h2 class="title">
-                    Trust by Over <span class="text-highlight">5000+</span>
+                    <?php echo $service_guest_title; ?>
                   </h2>
-                  <h3 class="sub-title">Website Owners Globally</h3>
+                  <h3 class="sub-title"><?php echo $service_guest_sub_title; ?></h3>
                 </div>
               </div>
             </div>
+
+            <?php if (!empty($service_guest_data) && is_array($service_guest_data)) { ?>
             <div class="col-md-12">
               <div class="trusted-wrapper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <a class="c-card" href="#">
-                      <img
-                        class="c-image"
-                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/jet-pack-logo-icon.png"
-                        alt=""
-                      />
-                      <h6 class="c-title">Jetpack</h6>
-                    </a>
-                  </div>
+
+                  <?php
+                  foreach ((array) $service_guest_data as $guest_data) : setup_postdata($guest_data);
+                  //print_r($p_data);
+                  
+                    $title = $guest_data['title'];
+                    $image = $guest_data['image']; ?>
 
                   <div class="swiper-slide">
                     <a class="c-card" href="#">
-                      <img
-                        class="c-image"
-                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/cloude-flair.png"
-                        alt=""
-                      />
-                      <h6 class="c-title">CLOUD-FALER</h6>
+                      <img class="c-image" src="<?php echo $image; ?>" alt="<?php echo $title; ?>"/>
+                      <h6 class="c-title"><?php echo $title; ?></h6>
                     </a>
                   </div>
 
-                  <div class="swiper-slide">
-                    <a class="c-card" href="#">
-                      <img
-                        class="c-image"
-                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/goole-cloud.png"
-                        alt=""
-                      />
-                      <h6 class="c-title">Google Cloud</h6>
-                    </a>
-                  </div>
+                  <?php endforeach;
+                  wp_reset_postdata();
+                  ?>
 
-                  <div class="swiper-slide">
-                    <a class="c-card" href="#">
-                      <img
-                        class="c-image"
-                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/wordprees.png"
-                        alt=""
-                      />
-                      <h6 class="c-title">Worde Prasse</h6>
-                    </a>
-                  </div>
 
-                  <div class="swiper-slide">
-                    <a class="c-card" href="#">
-                      <img
-                        class="c-image"
-                        src="<?php echo get_template_directory_uri(); ?>/assets/images/services/LITESPEED.png"
-                        alt=""
-                      />
-                      <h6 class="c-title">LITESPEED</h6>
-                    </a>
-                  </div>
                 </div>
 
                 <div class="swiper-pagination"></div>
               </div>
             </div>
+            <?php } ?>
+
           </div>
         </div>
       </section>
 
+      <!------------- New Pricing ------------>
+      <section class="pricing-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="title-sec">
+                <h2 class="title">
+                  <?php echo $service_pricing_title; ?>
+                </h2>
+                <p><?php echo $service_pricing_cont; ?></p>
+              </div>
+
+
+              
+              <div class="wrapper">
+                <nav class="tabs">
+                  <div class="selector"></div>
+                  <?php $pricing_data = get_field( "pricing_type", get_the_ID() );
+                  if (!empty($pricing_data) && is_array($pricing_data)) {
+                  $fs = 1;
+                  foreach ((array) $pricing_data as $p_data) : setup_postdata($p_data);
+                                
+                    $type = $p_data['type'];
+
+                      ?>
+
+                    <a href="#" data-body="<?php get_custom_slug($type); ?>" class="<?php if($fs ==1) { echo 'active'; } ?>"><?php echo $type; ?></a>
+                    <!-- <a href="#" data-body="tda"><i class="fa fa-file-text" aria-hidden="true"></i>Traffic + DA</a> -->
+
+                  <?php $fs++;
+                  endforeach;
+                  wp_reset_postdata();
+                  } ?>
+                </nav>
+
+
+                <section class="tab-body">
+
+                    <?php $pricing_offer_arr = [ 'Website Traffic- 100+',
+                          'Content Length- 600+ Words',
+                          '100% Manual Outreach',
+                          'Niche-Specific Sites Only',
+                          '100% Do-Follow Links',
+                          '1 Anchor Text/Target URL', 
+                          '48-Hour Delivery Promise', 
+                          'SEO Optimised Content'
+                    ];                  
+                    //print_r($pricing_offer_arr);                      
+                    if (!empty($pricing_data) && is_array($pricing_data)) {
+                      $cs = 1;
+                      foreach ((array) $pricing_data as $p_data) : setup_postdata($p_data);
+                        $type = $p_data['type'];
+                      ?>
+
+                      <section class="<?php get_custom_slug($type); ?>">
+                        <div class="authority-wrapper">
+                          
+                          <?php $cardc=1;
+                          foreach ((array) $p_data['data'] as $new_data) : setup_postdata($new_data); ?>
+
+                          <div class="c-card <?php if($cardc == 1) { echo 'active'; } ?>">
+                            <div class="c-title-sec">
+                              <h5 class="title"><?php echo $new_data['title']; ?></h5>
+                              <p class="sub-title"><?php echo $new_data['sub_title']; ?></p>
+                            </div>
+
+                            <div class="price">
+                              <span class="left-dolor"> $ <?php echo $new_data['original_price']; ?> </span>
+                              <span class="right-dolor"> $ <?php echo $new_data['special_price']; ?> </span>
+                            </div>
+
+                            <div class="card-list">
+                              <h6 class="list-title"><?php echo $new_data['sub_content']; ?></h6>
+                              <ul class="list-ul">
+                                  
+                                  <?php foreach ((array) $pricing_offer_arr as $featues_data) : setup_postdata($featues_data);
+                                  
+                                  if($featues_data == $new_data['point_1'] || $featues_data == $new_data['point_2'] || $featues_data == $new_data['point_3'] || $featues_data == $new_data['point_4'] || $featues_data == $new_data['point_5'] || $featues_data == $new_data['point_6'] || $featues_data == $new_data['point_7'] || $featues_data == $new_data['point_8']) { ?>  
+                                  
+                                      <li class="list-li">
+                                  <?php } else { ?>
+                                      <li class="list-wrong-li">
+                                  <?php } ?>
+                                  
+                                      <?php echo $featues_data; ?></li>
+                                      
+                                  <?php
+                                  endforeach;
+                                  wp_reset_postdata(); ?>
+                                  
+                              </ul>
+                            </div>
+
+                            <div class="actions">
+                              <a href="<?php echo (!empty($new_data['add_to_cart_url'])) ? $new_data['add_to_cart_url'] : '#'; ?>" class="add-to-cart">Add to Cart</a>
+                              <a href="#" class="see-all">(Unlock Coupon Code)</a>
+                            </div>
+                          </div>
+                      
+                          <?php $cardc++;
+                          endforeach;
+                          wp_reset_postdata(); ?>
+                        
+                      
+                        </div>
+                      </section>
+
+
+                  <?php $cs++;
+                  endforeach;
+                  wp_reset_postdata();
+                  } ?>
+
+                </section>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!------------------------------->
+      <?php /******** OLD Pricing Section **********
       <section class="pricing-section">
         <div class="container">
           <div class="row">
@@ -245,6 +337,7 @@ foreach ($myvals as $key => $val) {
           </div>
         </div>
       </section>
+      <?php *************/ ?>
 
       <section class="how-it-works-section">
         <img
@@ -265,7 +358,7 @@ foreach ($myvals as $key => $val) {
 
               <div class="card-wrapper">
 
-                <?php if (!empty($service_how_it_works_data) && is_array($service_how_it_works_data)) {
+                <?php if (!empty($service_pricing_data) && is_array($service_how_it_works_data)) {
                   $fs = 1;
                   foreach ((array) $service_how_it_works_data as $key => $work_data) : setup_postdata($work_data);                
                   
@@ -675,31 +768,6 @@ foreach ($myvals as $key => $val) {
             wp_reset_postdata();
             } ?>
 
-
-            <!-- <div class="c-card">
-              <h4 class="title">Traffic</h4>
-              <p class="sub-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat fugiat perspiciatis modi? Animi doloremque consequuntur
-                temporibus
-              </p>
-            </div>
-            <div class="c-card">
-              <h4 class="title">Traffic</h4>
-              <p class="sub-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat fugiat perspiciatis modi? Animi doloremque consequuntur
-                temporibus
-              </p>
-            </div>
-            <div class="c-card">
-              <h4 class="title">DA+Traffic</h4>
-              <p class="sub-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat fugiat perspiciatis modi? Animi doloremque consequuntur
-                temporibus
-              </p>
-            </div> -->
           </div>
         </div>
       </section>
@@ -714,9 +782,9 @@ foreach ($myvals as $key => $val) {
               </div>
               <div class="testimonials-wrapper">
 
-              <?php $clients_args = get_posts(array('post_type'=> 'our-clients', 'post_per_page' => -1));
+              <?php $clients_args = get_posts(array('post_type'=> 'testimonial', 'post_per_page' => -1));
                 
-                foreach($clients_args as $post) { ?>
+              foreach($clients_args as $post) { ?>
 
                 <div class="testimonial">
                   <div class="header">
@@ -728,7 +796,7 @@ foreach ($myvals as $key => $val) {
                   </div>
                 </div>
 
-                <?php }
+              <?php }
               wp_reset_postdata(); ?>
 
               </div>

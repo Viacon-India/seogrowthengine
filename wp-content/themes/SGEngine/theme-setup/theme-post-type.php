@@ -3,10 +3,10 @@
 function my_custom_post_type_add_func() {
 
   $post_type = array(
-    //array( 'name' => 'Testimonial', 'slug' => 'testimonial'),
-    array( 'name' => 'Our Clients', 'slug' => 'our-clients'),
+    array( 'name' => 'Testimonial', 'slug' => 'testimonial'),
+    //array( 'name' => 'Our Clients', 'slug' => 'our-clients'),
     array( 'name' => 'FAQ', 'slug' => 'faq'),
-    //array( 'name' => 'Case Study', 'slug' => 'case-study'),
+    array( 'name' => 'Case Study', 'slug' => 'case-study'),
   );
 
   foreach($post_type as $posttype) {      
@@ -25,44 +25,17 @@ function my_custom_post_type_add_func() {
         'not_found_in_trash' => __( 'No '.$posttype['name'].' found in the Trash' ),
         'menu_name'          => $posttype['name']
     );
-    //if($posttype['slug'] == 'our-clients') {
-        $args = array(
-            'labels'        => $labels,
-            'description'   => 'Holds our specific data',
-            'public'        => true,
-            'menu_position' => 5,
-            'supports'      => array( 'title', 'editor', 'thumbnail' ),
-            'has_archive'   => false,
-            'rewrite' => array(
-                'with_front' => false
-            )
-        );
-    /* } elseif($posttype['slug'] == 'testimonial' || $posttype['slug'] == 'partner') {
-        $args = array(
-            'labels'        => $labels,
-            'description'   => 'Holds our specific data',
-            'public'        => true,
-            'publicly_queryable' => false,
-            'menu_position' => 5,
-            'supports'      => array( 'title', 'thumbnail' ),
-            'has_archive'   => false,
-            'rewrite' => array(
-                'with_front' => false
-            )
-        );
-    } else {
-        $args = array(
-            'labels'        => $labels,
-            'description'   => 'Holds our specific data',
-            'public'        => true,
-            'menu_position' => 5,
-            'supports'      => array( 'title', 'thumbnail' ),
-            'has_archive'   => false,
-            'rewrite' => array(
-                'with_front' => false
-            )
-        );
-    } */
+    $args = array(
+        'labels'        => $labels,
+        'description'   => 'Holds our specific data',
+        'public'        => true,
+        'menu_position' => 5,
+        'supports'      => array( 'title', 'editor', 'thumbnail' ),
+        'has_archive'   => false,
+        'rewrite' => array(
+            'with_front' => false
+        )
+    );
     register_post_type( $posttype['slug'], $args );
 
   }

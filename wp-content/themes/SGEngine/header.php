@@ -10,22 +10,10 @@ $front_pageID = get_option('page_on_front');
 $main_page_url = 'https://www.seogrowthengine.io';
 $seo_title = get_post_meta(get_the_ID(), '_yoast_wpseo_title', true);
 
-//$favicon = get_field('favicon', $front_pageID );
-//$logo = get_field( "logo", $front_pageID );
-
-
 /*************** LOGO & FAVICON **************/
 $abn_home_page = get_option('home_page');
 $abn_logo = $abn_home_page['abn_logo'];
 $abn_favicon = $abn_home_page['abn_favicon'];
-
-
-/***************** Page Links *******************/
-/* $page_link = get_option('page_links');
-$register_link = $page_link['abn_register_link'];
-$login_link = $page_link['abn_login_link'];
-$advertiser_link = $page_link['abn_advertiser_link']; */
-
 ?>
 
 

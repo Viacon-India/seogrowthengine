@@ -242,47 +242,7 @@ class my_Admin {
 			
 			)
         );
-        $this->option_metabox[] = array(
-            'id'         => 'page_links',
-            'title'      => 'Important Page Links',
-            'show_on'    => array( 'key' => 'options-page', 'value' => array( 'page_links' ), ),
-            'show_names' => true,
-            'fields'     => array(
-				
-			     array(
-					'name' => __('Register Url', 'theme_textdomain'),
-					'id' => $prefix .'register_link',
-					'default' => '',					
-					'type' => 'text_url',
-					'attributes'  => array(
-						'placeholder' => 'Register URL',
-						'style'		=>'width:400px;'
-				    ),
-				),
-				array(
-					'name' => __('Login Url', 'theme_textdomain'),
-					'id' => $prefix .'login_link',
-					'default' => '',					
-					'type' => 'text_url',
-					'attributes'  => array(
-						'placeholder' => 'Login URL',
-						'style'		=>'width:400px;'
-					),
-				),
-				array(
-					'name' => __('Advertiser Url', 'theme_textdomain'),
-					'id' => $prefix .'advertiser_link',
-					'default' => '',					
-					'type' => 'text_url',
-					'attributes'  => array(
-						'placeholder' => 'Advertiser URL',
-						'style'		=>'width:400px;'
-					),
-				),
-			   
-			
-			)
-        );
+        
  	return $this->option_metabox;
    }
     public function get_option_key($field_id) {
