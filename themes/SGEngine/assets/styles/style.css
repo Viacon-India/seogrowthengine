@@ -12742,11 +12742,13 @@ body {
 
 .how-it-works-section .card-wrapper .c-card .title {
   text-transform: capitalize;
+  text-align: center;
 }
 
 .how-it-works-section .card-wrapper .c-card .sub-title {
   margin: 0px;
   font-size: calc(10px + 0.6vmin);
+  text-align: center;
 }
 
 .how-it-works-section .card-wrapper .c-card:before {
@@ -12764,7 +12766,7 @@ body {
           box-shadow: var(--shadow-primary);
   position: absolute;
   top: 5px;
-  left: 5px;
+  left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }

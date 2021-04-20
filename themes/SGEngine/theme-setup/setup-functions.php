@@ -31,6 +31,7 @@ if(!function_exists('bloggeroutreach_setup'))
     
     add_image_size( 'main-image', 340, 200, true );
     add_image_size( 'sidebar-image', 150, 150, true );
+    add_image_size( 'home-casestudy-image', 346, 220, true );
 
 
     //////////////////////////////////////////////////////////////////////////////

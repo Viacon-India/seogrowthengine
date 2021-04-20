@@ -22,7 +22,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
     font-size: calc(15px + 1vmin);
 }
 
-
+.footer .faq-section {
+    padding: 2vmax 0 4vmax 0 !important;
+    background: #17124273;
+    margin-bottom: -2rem;
+    margin-top: 3rem;
+}
 .footer .copyright {
     background-color: rgba(0, 0, 0, 0.6) !important;
 }

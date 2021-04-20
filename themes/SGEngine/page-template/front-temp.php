@@ -8,6 +8,7 @@ $myvals = get_post_meta(get_the_ID());
 foreach ($myvals as $key => $val) {
   ${$key} = unserialize($val[0]) ? unserialize($val[0]) : $val[0];
 }
+$all_case_study = get_posts(array('post_type' => 'case-study', 'posts_per_page' => 6, 'orderby' => 'date', 'order' => 'DESC'));
 ?>
 
     <header class="banner">
@@ -193,49 +194,40 @@ foreach ($myvals as $key => $val) {
           <div class="row">
             <div class="col-md-12">
               <div class="btn-sec mb-5">
-                <a class="btn btn-secondary w-25" href="#">Case Studis</a>
+                <a class="btn btn-secondary w-25" href="#">Case Studies</a>
                 <a class="btn btn-light w-25" href="#">SEO Enablement tool</a>
               </div>
               <div class="defined-wrapper">
-                <div class="c-card">
-                  <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/home/7.png" alt="" />
+
+
+              <?php if (!empty($all_case_study) && is_array($all_case_study)) {
+                $fc = 1;
+                foreach ((array) $all_case_study as $post) : setup_postdata($post); 
+
+                  $case_meta = get_post_meta($post->ID);
+                  $sub_title = $case_meta['sge_single_case_study_sub_title'][0]; ?>
+
+                  <div class="c-card">
+                    <div class="image-cover">
+                      <?php echo get_the_post_thumbnail( $post->ID, 'home-casestudy-image' ); ?>
+                    </div>
+                    <div class="c-title-sec">
+                      <p class="c-sub-taitle">
+                        <?php echo $sub_title; ?>
+                      </p>
+                      <h4 class="c-title">
+                        <?php echo $post->post_title; ?>
+                      </h4>
+                    </div>
                   </div>
-                  <div class="c-title-sec">
-                    <p class="c-sub-taitle">
-                      Markting, Sales, SEO, Visitor, Web
-                    </p>
-                    <h4 class="c-title">
-                      SEO agency have over 40+ years combined
-                    </h4>
-                  </div>
-                </div>
-                <div class="c-card">
-                  <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/home/8.png" alt="" />
-                  </div>
-                  <div class="c-title-sec">
-                    <p class="c-sub-taitle">
-                      Markting, Sales, SEO, Visitor, Web
-                    </p>
-                    <h4 class="c-title">
-                      SEO agency have over 40+ years combined
-                    </h4>
-                  </div>
-                </div>
-                <div class="c-card">
-                  <div class="image-cover">
-                    <img src="<?php echo SGE_URI; ?>/assets/images/home/9.png" alt="" />
-                  </div>
-                  <div class="c-title-sec">
-                    <p class="c-sub-taitle">
-                      Markting, Sales, SEO, Visitor, Web
-                    </p>
-                    <h4 class="c-title">
-                      SEO agency have over 40+ years combined
-                    </h4>
-                  </div>
-                </div>
+
+                  <?php 
+                $fc++;
+                endforeach;
+                wp_reset_postdata();
+              } ?>
+
+                
               </div>
             </div>
           </div>

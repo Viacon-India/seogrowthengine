@@ -161,7 +161,7 @@ foreach ($myvals as $key => $val) {
                           <?php $cardc=1;
                           foreach ((array) $p_data['data'] as $new_data) : setup_postdata($new_data); ?>
 
-                          <div class="c-card <?php if($cardc == 1) { echo 'active'; } ?>">
+                          <div class="c-card <?php //if($cardc == 1) { echo 'active'; } ?>">
                             <div class="c-title-sec">
                               <h5 class="title"><?php echo $new_data['title']; ?></h5>
                               <p class="sub-title"><?php echo $new_data['sub_title']; ?></p>
